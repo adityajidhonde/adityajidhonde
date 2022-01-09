@@ -1,0 +1,27 @@
+body{
+    background: url(./16692.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.mide{
+    color: white;
+    position: absolute;
+    top: 25%;
+    left: 40%; 
+}
+.rti{
+    color: white;
+    font-size: large;
+    font-family: monospace;
+}
+nav a{
+    color: white;
+    font-size: large;
+    font-family: monospace;
+}
+.cont{
+    padding: 1%;
+}
+.cont img{
+ width: 30%;
+ height: 20%;
+}

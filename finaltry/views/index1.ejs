@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./ace-builds-master/src/ace.js"></script>
+        <script src="./ace-builds-master/src/theme-monokai.js"></script>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="/res" method="post" id="foid"> -->
+        <div id="navbar">
+            <a class="active" href="/logout">Home</a>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
+          </div>
+          <div class="coder">
+     <div name="code" id="code" class="code" ></div>
+        <div class="inpu"><textarea name="input" id="input" cols="30" rows="10" placeholder="Enter your input"></textarea></div></div>
+     <select id="mySelect">
+        <option value="cpp">C/Cpp</option>
+        <option value="java">Java</option>
+        <option value="python">Python</option>
+        <option value="csharp">C#</option>
+        <option value="vb">Visual Basics</option>
+      </select>
+      <input type="button" value="change language" onclick="langchang()" />
+
+        <input type="submit" value="submit" id="submit" onclick="ec()">
+        <div><h1>Output</h1><h2 class="op" id="op"></h2></div>
+    <!-- </form> -->
+    <div><form action="/sharescr" method="get">
+        <button type="submit">Screen sharing</button></form></div>
+</body>
+</html>

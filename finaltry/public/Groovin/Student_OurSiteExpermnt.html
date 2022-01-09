@@ -1,0 +1,260 @@
+<?php
+
+session_start();
+//echo $_SESSION["status"];
+
+if(!isset($_SESSION["status"])){
+echo "you are logged out";
+header('location:index.php');
+}
+?>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>Student_OurSite</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"> 
+<link href="OurSite.css" rel="stylesheet"> 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="OurSite.js"></script> 
+
+</head>
+<body id="Body" style="font-family: 'Nunito', sans-serif;">
+<div id="pp" >
+<nav class="navbar navbar-inverse" style="overflow:hidden;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+     <!-- <a class="navbar-brand" href="#" style="color:#61dafb;" >--><img src="images/codeappmedialogo.jpg" style= "height: 50px;
+        width: 50px;" alt="image"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar" style="font-family: 'Nunito', sans-serif;">
+      <ul id="ul" class="nav navbar-nav">
+        <li id="home" onclick="Home()" class="active"><a href="https://www.codeappmedia.com/">Home</a></li>
+    
+      
+        <a href="#"><button id="a3" onclick="Dark_mode()">Dark/Light</button></a>
+        <!--<li><a href="#">Projects</a></li>-->
+        <a href="#"><button id="a3" 
+onclick='doDL(document.getElementById("code").value)'>Download Code</button> </a>
+
+        <li><a href="https://localhost:3012/" target="_blank">Join Class</a></li>
+
+        <li> <div class="dropdown">
+          <button id="a4" class="dropbtn"><i class="fas fa-code"style="font-size:48px;  "></i>Language</button>
+          <div class="dropdown-content" id="myDropdown">
+          <button style="font-family: 'Courier New', Courier, monospace;" onclick="python()">Python</button>
+          <button style="font-family: 'Courier New', Courier, monospace;" onclick="C()">C</button>
+          <button style="font-family: 'Courier New', Courier, monospace;" onclick="Cpp()">C++</button>
+          <button style="font-family: 'Courier New', Courier, monospace;">Java</button>    
+          </div>
+          <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+      <!-- <ul class="nav navbar-nav navbar-right">
+       <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul> -->
+    </div>
+  </div>
+</nav>
+</div>
+<div class="dropdown" style="position:fixed ;margin-top: 30%;z-index:4;overflow: visible;">
+  <button id="a6" class="dropbtn" onclick="syntax()" >&gt;&gt;</button> 
+    <div id="syntax_bar" style="background-color: black; overflow-x: scroll;">
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="CurlyBrac()">{}</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="SimpleBrac()">()</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="SquareBrac()">[]</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Tab()">TAB</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Colon()">:</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="SemiColon()">;</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="DoubleQuotes()">""</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Equal()">=</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="GreaterThan()">&gt;</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="LessThan()">&lt;</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Add()">+</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Subtract()">-</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Multiply()">*</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Divide()">/</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Modulo()">%</button>
+ </div>
+</div>
+
+
+<div class="dropdown" style="position:fixed ;margin-top: 20%;z-index:4;overflow: visible;">
+  <button id="a11" class="dropbtn" onclick="syntax2()" >&gt;&gt;</button> 
+    <div id="syntax_bar2" style="background-color: black; overflow-x: scroll;">
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="for1()">for()</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="SimpleBrac()">()</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="SquareBrac()">[]</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Tab()">TAB</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Colon()">:</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="SemiColon()">;</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="DoubleQuotes()">""</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Equal()">=</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="GreaterThan()">&gt;</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="LessThan()">&lt;</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Add()">+</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Subtract()">-</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Multiply()">*</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Divide()">/</button>
+   <button style="font-family: 'Courier New', Courier, monospace;" onclick="Modulo()">%</button>
+ </div>
+</div>
+<!--<div class="container-fluid text-center"> 
+  <div class="background"> 
+    <div class="hero__title"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+  </div>  --> 
+  <div class="backg">
+		<div class="planet">
+			<div class="r1"></div>
+			<div class="r2"></div>
+			<div class="r3"></div>
+			<div class="r4"></div>
+			<div class="r5"></div>
+			<div class="r6"></div>
+			<div class="r7"></div>
+			<div class="r8"></div>
+			<div class="shad"></div>
+		</div>
+		<div class="stars">
+			<div class="s1"></div>
+			<div class="s2"></div>
+			<div class="s3"></div>
+			<div class="s4"></div>
+			<div class="s5"></div>
+			<div class="s6"></div>
+		</div>
+		<div class="an">
+			<div class="tank"></div>
+			<div class="astro">
+					
+					<div class="helmet">
+						<div class="glass">
+							<div class="shine"></div>
+						</div>
+					</div>
+					<div class="dress">
+						<div class="c">
+							<div class="btn1"></div>
+							<div class="btn2"></div>
+							<div class="btn3"></div>
+							<div class="btn4"></div>
+						</div>
+					</div>
+					<div class="handl">
+						<div class="handl1">
+							<div class="glovel">
+								<div class="thumbl"></div>
+								<div class="b2"></div>
+							</div>
+						</div>
+					</div>
+					<div class="handr">
+						<div class="handr1">
+							<div class="glover">
+								<div class="thumbr"></div>
+								<div class="b1"></div>
+							</div>
+						</div>
+					</div>
+					<div class="legl">
+						<div class="bootl1">
+							<div class="bootl2"></div>
+						</div>
+					</div>
+					<div class="legr">
+						<div class="bootr1">
+							<div class="bootr2"></div>
+						</div>
+					</div>
+					<div class="pipe">
+						<div class="pipe2">
+							<div class="pipe3"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+    </div>
+<a href="https://youtu.be/RLCKShRRwG0" target="_blank">
+  <i class="fa fa-youtube-play" aria-hidden="true"></i> &nbsp;Watch More  
+</a>
+  <div class="row content" >
+    
+    <!--<div class="col-sm-2 sidenav">
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div>-->
+    
+    <div class="col-sm-8 text-left" style="padding: 0%;"> 
+      <h1   style="font-family: 'Nunito', sans-serif;font-size: 200%;">Write your code here</h1>
+      <form action="/__________________backend.php">
+        <legend></legend>
+        <pre>
+        <code >
+          <textarea id= "code" name="message" spellcheck="false" placeholder="SELECT A LANGUAGE" rows=20  style="background-color: #282c34;font-size:20px;width:100%;color:rgb(255, 174, 0); border-left-width: 5px ;border-left-color: #61dafb;" ></textarea>
+        </code>
+        </pre>
+          <br><br>
+          <input style="margin-left:20px ;font-family: 'Courier New', Courier, monospace;" class="button_glow" type="submit" value="RUN">
+          <input type="reset" value="RESET" style="font-family: 'Courier New', Courier, monospace; z-index: 1;" class="button_glow">
+        </form>
+        
+        <pre>
+          <code >
+        <form action="/__________________backend.php"><textarea rows=0 placeholder="Input" style="background-color: #282c34;font-size:20px;width:100%;color:rgb(255, 174, 0); border-left-width: 5px ;border-left-color: #61dafb;" ></textarea>
+        <input style="margin-left:-50px ;font-family: 'Courier New', Courier, monospace;" class="button_glow" type="submit" value="INPUT">
+      </form>
+      <textarea rows=10 placeholder="OUTPUT" style="background-color: #282c34;font-size:20px;width:100%;color:rgb(255, 174, 0); border-left-width: 5px ;border-left-color: #61dafb;"></textarea>
+      </code>
+    </pre>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <hr>
+      <h3>Test</h3>
+      <p>Lorem ipsum...</p>
+    </div>
+  <!-- <div class="col-sm-2 sidenav" style="width:40vh; height:40vh;">
+    <h2 style="font-family: 'Courier New', Courier, monospace;">Output:</h2>
+    <form action="/backend.php">
+    <input  id= "output" name="message" spellcheck="false" placeholder="CODE OUTPUT" height=18.75rem rows="500" cols="80" style="background-color: #282c34 ;color:white; border-left-width: 5px; width:18.75rem;height:40vh;border-left-color: #61dafb;" type="text">
+!!!!!!!!!!!!!<input  id= "output" name="message" spellcheck="false" placeholder="CODE OUTPUT" rows="5" cols="80" style="background-color: #282c34 ;color:white; border-left-width: 5px; width:100%;border-left-color: #61dafb;" type="text">
+    <input style="margin-left:10px ;font-family: 'Courier New', Courier, monospace;" class="button_glow" type="submit" value="Submit">!!!!!!
+  </form>
+    </div>-->
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>CodeApp Media
+    
+
+© Copyright CodeAppMedia. All Rights Reserved
+Designed by CodeAppMedia
+
+  </p>
+</footer>
+
+</body>
+<script type='text/javascript'>
+function doDL(s){
+    function dataUrl(data) {return "data:x-application/text," + escape(data);}
+    window.open(dataUrl(s));
+}
+</script>
+</html>
